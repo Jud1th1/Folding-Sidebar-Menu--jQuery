@@ -6,6 +6,8 @@
 	<title>jQuery Menu Example</title>
 
 	<link href="styles.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="script.js" defer></script>
 </head>
 
 <body>
@@ -84,13 +86,82 @@
 		</aside>
 
 	</main>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
 	<script>
 		//You can use the CSS method we saw before in jQuery to hide the sub menus.
-		//$('ul li ul').css("display", "none");
+			//$('ul li ul').css("display", "none");
 
 		//Use the helper functions .hide()method to hide the sub menus.
-		$('ul li ul').hide();
+			/*$('ul li ul').hide();*/
+
+
+		//_______________________________________________________________________________________
+		//Challenge 2. Add a click handler to the main links. 
+			/* $('ul li ul').hide();
+			$('.menulink').click(function(){}); */
+
+
+		//________________________________________________________________________________________
+		//Challenge 3. Access the unordered list that comes after the anchor tag. 
+		//$(this) gets the link, & then jQuery has a helper function called next() that will get the next element
+			/* $('ul li ul').hide();
+			$('.menulink').click(function(){
+				var thisMenu = $(this).next('ul');
+				console.log(thisMenu.html());
+			}); */
+
+
+		//________________________________________________________________________________________
+		//Challenge 4. Show the Hidden Menu
+		//There is an .is() method that will return true or false depending on what is passed in. 
+		//You can pass in the :visible filter to see if the menu is currently showing or not. 
+
+			/*$('ul li ul').hide();
+
+			$('.menulink').click(function(){
+				var thisMenu = $(this).next('ul');
+
+				if(thisMenu.is('visible')){
+					thisMenu.hide();
+				}
+				else {
+					thisMenu.show();
+				}
+			});
+
+			//An easier solution: 
+			//jQuery has a helper function called toggle(); that will toggle visibility. So that makes doing something like this super simple.
+			
+			$('.menulink').click(function(){
+				var thisMenu = $(this).next('ul');
+
+				thisMenu.toggle();
+			}); */
+
+
+
+		//________________________________________________________________________________________
+		//Challenge 5. Now make it so only one sub menu can be open at a time 
+			/* $('ul li ul').hide()
+
+			$('.menulink').click(function(){
+					var thisMenu = $(this).next('ul');
+
+					$('ul li ul').not(thisMenu).hide(); //get all of the unordered lists that are inside the list item, but not the one that we clicked on
+
+					thisMenu.toggle();
+				}); */
+
+
+		//________________________________________________________________________________________
+		//Challenge 6. Put the script in a seperate script file. 
+		//Add an IIFE closure
+		//Use the "use strict" directive
+		//Change all the vairable declaratons to const or let 
+		//Move the linked file into the head, also move link to the jQuery library on the CDN and add the defer property to both 
+
+			
+
 	</script>
 
 </body>
